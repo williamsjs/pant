@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchBox from '../SearchBox/SearchBox';
-import List from '../List/List';
+import SearchBox from '../shared/SearchBox/SearchBox';
+import List from '../shared/List/List';
 
 class Container extends Component {
   constructor(props) {
@@ -21,9 +21,10 @@ class Container extends Component {
   }
 
   componentWillMount() {
-    this.setState(prevState => ({
-      list: this.dogs
-    }));
+    fetch(`https://dog.ceo/api/breeds/list/all`)
+      .then(items => items.json())
+      .then(parsedItems => console.log(parsedItems));
+    this.setState({ list: this.dogs });
   }
 
   onChange(text) {
