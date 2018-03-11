@@ -13,6 +13,7 @@ class List extends Component {
   render() {
     return (
       <div className="list">
+        {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
       </div>
     );
   }
