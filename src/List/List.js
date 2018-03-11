@@ -7,14 +7,15 @@ class List extends Component {
   }
 
   items(item) {
-    <Item index={item.id} key={item.id}>{item.name}</Item>
+    // <Item index={item.id} key={item.id}>{item.name}</Item>
   }
 
   render() {
     return (
       <div className="list">
-        {this.props.items.map()}
       </div>
     );
   }
 }
+
+export default List;

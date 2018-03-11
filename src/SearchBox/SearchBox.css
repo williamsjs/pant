@@ -1,0 +1,8 @@
+input[type="search"] {
+  margin: auto;
+  width: 10%;
+}
+
+.search-box-container {
+  text-align: center;
+}

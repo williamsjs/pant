@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchBox.css';
 
 class SearchBox extends Component {
   constructor(props) {
@@ -7,7 +8,9 @@ class SearchBox extends Component {
 
   render() {
     return (
-      <input type="search" ref={input => this._searchText = input} />
+      <div class="search-box-container">
+        <input type="search" ref={input => this._searchText = input} />
+      </div>
     );
   }
 }
