@@ -11,13 +11,16 @@ class Container extends Component {
   }
 
   onChange(text) {
-    fetch(`https://dog.ceo/api/breed/${text}/images`)
+    if (text) {
+      text = text.split(' ').join('');
+      fetch(`https://dog.ceo/api/breed/${text}/images`)
       .then(items => items.json())
       .then(parsedItems => {
         if (parsedItems.code === '404') return;
         const list = parsedItems.message.map((item, i) => ({id: (i + 1), img: item}));
         this.setState(() => ({list: list}));
       });
+    }
   }
 
   render() {
