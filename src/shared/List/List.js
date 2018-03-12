@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './List.css';
 
 class List extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class List extends Component {
   }
 
   items(item) {
-    return <img key={item.id} alt="" src={item.img} />;
+    return <img key={item.id} alt="" src={item.img} className="item" />;
   }
 
   render() {
