@@ -7,13 +7,17 @@ class List extends Component {
   }
 
   items(item) {
-    // <Item index={item.id} key={item.id}>{item.name}</Item>
+    return (
+      <li key={item.id}>
+        <img src={item.img} />
+      </li>
+    );
   }
 
   render() {
     return (
       <div className="list">
-        {this.props.list.map(listItem => <li key={listItem.id}>{listItem.name}</li>)}
+        {this.props.list.map(this.items)}
       </div>
     );
   }
