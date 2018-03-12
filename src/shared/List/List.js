@@ -7,11 +7,7 @@ class List extends Component {
   }
 
   items(item) {
-    return (
-      <li key={item.id}>
-        <img src={item.img} />
-      </li>
-    );
+    return <img key={item.id} alt="" src={item.img} />;
   }
 
   render() {
