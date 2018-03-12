@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBox from '../shared/SearchBox/SearchBox';
 import List from '../shared/List/List';
+import './Container.css';
 
 class Container extends Component {
   constructor(props) {
