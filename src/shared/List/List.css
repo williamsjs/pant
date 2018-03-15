@@ -1,5 +1,15 @@
 .item {
   width: 17em;
-  height: 17em;
   padding: 10px;
+}
+
+.item-image {
+  width: 100%;
+  height: 17em;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }

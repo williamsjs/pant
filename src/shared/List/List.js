@@ -8,7 +8,12 @@ class List extends Component {
   }
 
   items(item) {
-    return <img key={item.id} alt="" src={item.img} className="item" />;
+    return (
+      <div key={item.id} className="item">
+        {item.title}
+        <img src={item.img} alt="" className="item-image"/>
+      </div>
+    );
   }
 
   render() {
