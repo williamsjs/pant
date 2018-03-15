@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 import List from '../shared/List/List';
-import Loading from '../shared/Loading';
 import DogCategories from '../shared/DogCategories';
 import './Container.css';
 
 class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {list: [], loading: true}
+    this.state = {list: DogCategories, loading: true}
   }
 
   componentDidMount() {
-    const listItems = [];
-    Promise.all(
-      DogCategories.map((category, index) => {
-        listItems.push({title: category, id: index + 1});
-        return fetch(`https://dog.ceo/api/breed/${category}/images/random`)
-      })
-    ).then(requests => {
-      Promise.all(requests.map(req => req.json()))
-        .then(items => {
-          items.forEach((item, index) => listItems[index].img = item.message);
-          this.setState({list: listItems, loading: false})
-        });
+    this.state.list.map((item, index) => {
+      fetch(`https://dog.ceo/api/breed/${item.name}/images/random`)
+        .then(res => res.json())
+        .then(response => {
+          this.setState(prevState => {
+            const list = prevState.list;
+            const updatedItem = Object.assign({}, list.filter(i => i.name === item.name)[0], {img: response.message});
+            list[index] = updatedItem;
+            return {list};
+          })
+        })
     });
-      
+
   }
 
 
@@ -34,9 +32,6 @@ class Container extends Component {
     return (
       <div className="container">
         <List list={list}/>
-        {loading && 
-          <Loading />
-        }
       </div>
     );
   }

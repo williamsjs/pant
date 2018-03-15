@@ -10,7 +10,7 @@ class List extends Component {
   items(item) {
     return (
       <div key={item.id} className="item">
-        {item.title}
+        {item.name}
         <img src={item.img} alt="" className="item-image"/>
       </div>
     );
