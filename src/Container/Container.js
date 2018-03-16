@@ -29,13 +29,10 @@ class Container extends Component {
 
   render() {
     const {list} = this.state;
-
     return (
       <div className="container">
         {list.length !== list.filter(item => item.img).length ? (
-          <div style={{textAlign: 'center'}}>
-            <ReactLoading type={'spin'} color={'green'} height={500} width={500}/>
-          </div>
+          <ReactLoading className="loading" type={'bars'} color={'skyblue'} />
         ) : (
           <List list={list}/>
         )
