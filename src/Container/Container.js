@@ -10,7 +10,7 @@ class Container extends Component {
   }
 
   componentDidMount() {
-    this.state.list.map((item, index) => {
+    this.state.list.forEach((item, index) => {
       fetch(`https://dog.ceo/api/breed/${item.name}/images/random`)
         .then(res => res.json())
         .then(response => {
@@ -27,7 +27,7 @@ class Container extends Component {
 
 
   render() {
-    const {list, loading} = this.state;
+    const {list} = this.state;
 
     return (
       <div className="container">

@@ -11,13 +11,7 @@ class List extends Component {
     return (
       <div key={item.id} className="item">
         {item.name}
-        {item.img ? (
-          <img src={item.img} alt="" className="item-image"/>
-        ) : (
-          <h1>Loading</h1>
-        )
-        }
-        
+        <img src={item.img} alt="" className="item-image"/>
       </div>
     );
   }
