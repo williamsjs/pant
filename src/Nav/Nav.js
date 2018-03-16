@@ -1,8 +1,9 @@
 import React from 'react';
+import './Nav.css';
 
 const Nav = () => {
   return (
-    <nav style={{background: 'skyblue', color: '#FFF'}}>
+    <nav className="main-nav">
       Pant
     </nav>
   )
