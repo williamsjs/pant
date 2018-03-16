@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactLoading from 'react-loading';
 import List from '../shared/List/List';
 import DogCategories from '../shared/DogCategories';
 import './Container.css';
@@ -31,7 +32,14 @@ class Container extends Component {
 
     return (
       <div className="container">
-        <List list={list}/>
+        {list.length !== list.filter(item => item.img).length ? (
+          <div style={{textAlign: 'center'}}>
+            <ReactLoading type={'spin'} color={'green'} height={500} width={500}/>
+          </div>
+        ) : (
+          <List list={list}/>
+        )
+        }
       </div>
     );
   }
