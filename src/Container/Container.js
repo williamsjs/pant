@@ -24,7 +24,6 @@ class Container extends Component {
           })
         })
     });
-
   }
 
 

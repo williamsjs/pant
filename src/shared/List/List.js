@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import './List.css';
+import ListItem from '../ListItem/ListItem';
 
 class List extends Component {
   constructor(props) {
     super(props);
-    this.items = this.items.bind(this);
-  }
-
-  items(item) {
-    return (
-      <div key={item.id} className="item">
-        {item.name}
-        <img src={item.img} alt="" className="item-image"/>
-      </div>
-    );
   }
 
   render() {
     return (
       <div className="list">
-        {this.props.list.map(this.items)}
+        {this.props.list.map(item => <ListItem {...item} />)}
       </div>
     );
   }
