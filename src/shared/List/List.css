@@ -1,14 +1,4 @@
-.item {
-  flex: 25%;
-  padding: 10px;
-}
-
-.item-image {
-  margin-top: 1.2em;
-}
-
 .list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
 }

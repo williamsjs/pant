@@ -1,9 +1,9 @@
 import React from 'react';
+import './ListItem.css';
 
 const ListItem = ({id, name, img}) => {
   return (
     <div key={id} className="item">
-      {name}
       <img src={img} alt="" className="item-image"/>
     </div>
   );
