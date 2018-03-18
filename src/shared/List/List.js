@@ -20,21 +20,20 @@ class List extends Component {
   }
 
   setWinWidth() {
-    console.log(window.innerWidth);
     this.setState({windowWidth: window.innerWidth})
   }
 
   getItemsPerColumn() {
-    console.log('in method');
     const { windowWidth } = this.state;
-    if (windowWidth > 1440) {
-      return 16;
-    } else if (windowWidth > 768) {
-      return 20;
+    const listLength = this.props.list.length;
+    if (windowWidth >= 1440) {
+      return (listLength / 5);
+    } else if (windowWidth >= 768) {
+      return (listLength / 4);
     } else if (windowWidth > 330) {
-      return 40;
+      return (listLength / 2);
     } else {
-      return this.props.list.length;
+      return listLength;
     }
   }
 
