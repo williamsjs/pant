@@ -1,6 +1,11 @@
 .item {
   position: relative;
   overflow: hidden;
+  margin-top: 6px;
+}
+
+.item:first-child {
+  margin-top: 0;
 }
 
 .item:hover {
@@ -11,6 +16,7 @@
 .item img {
   width: 100%;
   transition: all 0.3s;
+  vertical-align: middle;
 }
 
 .item:hover img {
