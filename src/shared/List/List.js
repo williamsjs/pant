@@ -23,19 +23,23 @@ class List extends Component {
     this.setState({windowWidth: window.innerWidth})
   }
 
+  calculateColumns(numOfColumns) {
+    const listLength = this.props.list.length;
+    return Math.ceil(listLength / numOfColumns);
+  }
+
   getItemsPerColumn() {
     const { windowWidth } = this.state;
-    const listLength = this.props.list.length;
     if (windowWidth >= 1440) {
-      return Math.ceil((listLength / 5));
+      return this.calculateColumns(5);
     } else if (windowWidth >= 768) {
-      return Math.ceil((listLength / 4));
+      return this.calculateColumns(4);
     } else if (windowWidth >= 426) {
-      return Math.ceil((listLength / 3));
-    }else if (windowWidth >= 330) {
-      return Math.ceil((listLength / 2));
+      return this.calculateColumns(3);
+    } else if (windowWidth >= 330) {
+      return this.calculateColumns(2);
     } else {
-      return listLength;
+      return this.props.list.length;
     }
   }
 

@@ -4,4 +4,14 @@
   padding: 10px;
   font-weight: bold;
   font-size: 25px;
+  font-family: 'Rammetto One', cursive;
+  text-shadow: 1px 1px #000;
+}
+
+.main-nav img {
+  width: 25px;
+  vertical-align: middle;
+  display:block;
+  text-align: center;
+  margin: auto auto 5px auto;
 }
