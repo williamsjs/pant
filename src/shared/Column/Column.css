@@ -1,4 +1,12 @@
 .column {
   flex: 20%;
-  padding: 6px 1.75px;
+  padding: 6px 3px;
+}
+
+.column:first-child {
+  padding-left: 6px;
+}
+
+.column:last-child {
+  padding-right: 6px;
 }
