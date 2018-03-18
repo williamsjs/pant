@@ -1,11 +1,6 @@
 .item {
   position: relative;
   overflow: hidden;
-  padding-top: 3px;
-}
-
-.item:first-child, .item:last-child {
-  padding-top: 0;
 }
 
 .item:hover {
@@ -14,7 +9,7 @@
 }
 
 .item img {
-  max-width: 100%;
+  width: 100%;
   transition: all 0.3s;
 }
 
