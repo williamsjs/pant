@@ -27,11 +27,13 @@ class List extends Component {
     const { windowWidth } = this.state;
     const listLength = this.props.list.length;
     if (windowWidth >= 1440) {
-      return (listLength / 5);
+      return Math.ceil((listLength / 5));
     } else if (windowWidth >= 768) {
-      return (listLength / 4);
-    } else if (windowWidth > 330) {
-      return (listLength / 2);
+      return Math.ceil((listLength / 4));
+    } else if (windowWidth >= 426) {
+      return Math.ceil((listLength / 3));
+    }else if (windowWidth >= 330) {
+      return Math.ceil((listLength / 2));
     } else {
       return listLength;
     }
