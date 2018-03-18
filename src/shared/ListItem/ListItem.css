@@ -23,3 +23,20 @@
   transform: scale(1.1);
   opacity: 0.6;
 }
+
+.hover-text {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  color: orange;
+  font-size: 3em;
+  font-family: 'Anton', sans-serif;
+  text-shadow: 1px 1px #000;
+  text-transform: capitalize;
+}
+
+.item:hover .hover-text {
+  visibility: visible;
+}
