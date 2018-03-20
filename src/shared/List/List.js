@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './List.css';
 import Column from '../Column/Column';
 
@@ -62,5 +63,9 @@ class List extends Component {
     );
   }
 }
+
+List.propTypes = {
+  list: PropTypes.array
+};
 
 export default List;

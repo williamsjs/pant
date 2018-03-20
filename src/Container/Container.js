@@ -35,7 +35,7 @@ class Container extends Component {
         {list.length !== list.filter(item => item.img).length ? (
           <ReactLoading className="loading" type={'bars'} color={'skyblue'} />
         ) : (
-          <List list={list}/>
+          <List list={list} />
         )
         }
       </div>
