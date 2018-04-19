@@ -4,7 +4,7 @@ import './ListItem.css';
 
 const ListItem = ({id, name, img, handleClick}) => {
   return (
-    <div key={id} className="item" onClick={() => handleClick(id)} >
+    <div key={id} className="item" onClick={e => handleClick(id, e)} >
       <img src={img} alt="" className="item-image"/>
       <span className="hover-text">{name}</span>
     </div>
