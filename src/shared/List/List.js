@@ -52,7 +52,7 @@ class List extends Component {
       columns.push(listClone.splice(0, itemsPerColumn));
     }
 
-    return columns.map((column, index) => <Column key={index} list={column} />);
+    return columns.map((column, index) => <Column key={index} list={column} handleClick={this.props.handleClick}/>);
   }
 
   render() {

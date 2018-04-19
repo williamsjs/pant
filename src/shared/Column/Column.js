@@ -5,7 +5,7 @@ import './Column.css';
 const Column = (props) => {
   return (
     <div className="column">
-      {props.list.map(item => <ListItem key={item.id} {...item} />)}
+      {props.list.map(item => <ListItem key={item.id} {...item} handleClick={props.handleClick} />)}
     </div>
   );
 }

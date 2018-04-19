@@ -11,6 +11,7 @@ class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {list: DogCategories, loading: true, modalIsOpen: false};
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,10 @@ class Container extends Component {
     });
   }
 
+  handleClick(id) {
+    console.log(id);
+  }
+
 
   render() {
     const {list, modalIsOpen} = this.state;
@@ -37,7 +42,7 @@ class Container extends Component {
         {list.length !== list.filter(item => item.img).length ? (
           <ReactLoading className="loading" type={'bars'} color={'skyblue'} />
         ) : (
-          <List list={list} />
+          <List list={list} handleClick={this.handleClick}/>
         )
         }
         <Modal isOpen={modalIsOpen} >
