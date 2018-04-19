@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactLoading from 'react-loading';
+import Modal from 'react-modal';
+
 import List from '../shared/List/List';
 import Nav from '../Nav/Nav';
 import DogCategories from '../shared/DogCategories';
@@ -8,7 +10,7 @@ import './Container.css';
 class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {list: DogCategories, loading: true}
+    this.state = {list: DogCategories, loading: true, modalIsOpen: false};
   }
 
   componentDidMount() {
@@ -18,7 +20,7 @@ class Container extends Component {
         .then(response => {
           this.setState(prevState => {
             const list = prevState.list;
-            const updatedItem = Object.assign({}, list.filter(i => i.name === item.name)[0], {img: response.message});
+            const updatedItem = Object.assign({}, list.find(i => i.name === item.name), {img: response.message});
             list[index] = updatedItem;
             return {list};
           })
@@ -28,7 +30,7 @@ class Container extends Component {
 
 
   render() {
-    const {list} = this.state;
+    const {list, modalIsOpen} = this.state;
     return (
       <div className="container">
         <Nav />
@@ -38,6 +40,9 @@ class Container extends Component {
           <List list={list} />
         )
         }
+        <Modal isOpen={modalIsOpen} >
+          content
+        </Modal>
       </div>
     );
   }
