@@ -10,9 +10,15 @@ import './Container.css';
 class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {list: DogCategories, loading: true, modalIsOpen: false};
+    this.state = {
+      list: DogCategories, 
+      loading: true, 
+      modalIsOpen: false, 
+      currentDog: null
+    };
     this.handleClick = this.handleClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.fetchDogs = this.fetchDogs.bind(this);
   }
 
   componentDidMount() {
@@ -31,11 +37,15 @@ class Container extends Component {
   }
 
   handleClick(id, e) {
-    this.setState({modalIsOpen: true});
+    this.setState({modalIsOpen: true, currentDog: this.state.list.find(dog => dog.id === id)});
   }
 
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+
+  fetchDogs() {
+    console.log(this.state.currentDog);
   }
 
   render() {
@@ -49,7 +59,7 @@ class Container extends Component {
           <List list={list} handleClick={this.handleClick}/>
         )
         }
-        <Modal isOpen={modalIsOpen} onRequestClose={this.closeModal}>
+        <Modal isOpen={modalIsOpen} onAfterOpen={this.fetchDogs} onRequestClose={this.closeModal}>
           <button onClick={this.closeModal}>Close</button>
         </Modal>
       </div>
