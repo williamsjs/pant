@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactLoading from 'react-loading';
 import Modal from 'react-modal';
+import Slider from 'react-slick';
 
 import List from '../shared/List/List';
 import Nav from '../Nav/Nav';
@@ -59,6 +60,13 @@ class Container extends Component {
 
   render() {
     const {list, modalIsOpen, currentBreedPics} = this.state;
+    var settings = {
+      infinite: true,
+      centerMode: true,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 2
+    };
     return (
       <div className="container">
         <Nav />
@@ -69,7 +77,9 @@ class Container extends Component {
         )
         }
         <Modal ariaHideApp={false} isOpen={modalIsOpen} onAfterOpen={this.fetchDogs} onRequestClose={this.closeModal}>
-          {currentBreedPics.map(pic => <img src={pic} />)}
+          <Slider {...settings} >
+            {currentBreedPics.map((pic, i) => <div key={i}><img style={{width: '100%'}} src={pic} /></div>)}
+          </Slider>
         </Modal>
       </div>
     );
