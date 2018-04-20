@@ -51,10 +51,7 @@ class Container extends Component {
   fetchDogs() {
     fetch(`https://dog.ceo/api/breed/${this.state.currentBreed}/images`)
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        this.setState({currentBreedPics: res.message});
-      });
+      .then(res =>  this.setState({currentBreedPics: res.message}));
   }
 
   render() {
