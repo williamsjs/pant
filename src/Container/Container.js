@@ -13,8 +13,8 @@ class Container extends Component {
     this.state = {
       list: DogCategories, 
       loading: true, 
-      modalIsOpen: false, 
-      currentDog: DogCategories[0]
+      modalIsOpen: false,
+      currentBreedPics: []
     };
     this.handleClick = this.handleClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -37,7 +37,11 @@ class Container extends Component {
   }
 
   handleClick(id, e) {
-    this.setState({modalIsOpen: true, currentDog: this.state.list.find(dog => dog.id === id)});
+    this.setState({
+      modalIsOpen: true, 
+      currentBreed: this.state.list.find(dog => dog.id === id).name,
+      currentBreedPics: []
+    });
   }
 
   closeModal() {
@@ -45,11 +49,16 @@ class Container extends Component {
   }
 
   fetchDogs() {
-    console.log(this.state.currentDog);
+    fetch(`https://dog.ceo/api/breed/${this.state.currentBreed}/images`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.setState({currentBreedPics: res.message});
+      });
   }
 
   render() {
-    const {list, modalIsOpen} = this.state;
+    const {list, modalIsOpen, currentBreedPics} = this.state;
     return (
       <div className="container">
         <Nav />
@@ -60,10 +69,7 @@ class Container extends Component {
         )
         }
         <Modal ariaHideApp={false} isOpen={modalIsOpen} onAfterOpen={this.fetchDogs} onRequestClose={this.closeModal}>
-          <div>
-            <h2>{this.state.currentDog.name}</h2>
-            <img src={this.state.currentDog.img} />
-          </div>
+          {currentBreedPics.map(pic => <img src={pic} />)}
         </Modal>
       </div>
     );
