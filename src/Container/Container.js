@@ -14,7 +14,7 @@ class Container extends Component {
       list: DogCategories, 
       loading: true, 
       modalIsOpen: false, 
-      currentDog: null
+      currentDog: DogCategories[0]
     };
     this.handleClick = this.handleClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -59,8 +59,11 @@ class Container extends Component {
           <List list={list} handleClick={this.handleClick}/>
         )
         }
-        <Modal isOpen={modalIsOpen} onAfterOpen={this.fetchDogs} onRequestClose={this.closeModal}>
-          <button onClick={this.closeModal}>Close</button>
+        <Modal ariaHideApp={false} isOpen={modalIsOpen} onAfterOpen={this.fetchDogs} onRequestClose={this.closeModal}>
+          <div>
+            <h2>{this.state.currentDog.name}</h2>
+            <img src={this.state.currentDog.img} />
+          </div>
         </Modal>
       </div>
     );
