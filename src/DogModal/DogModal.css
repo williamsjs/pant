@@ -12,6 +12,13 @@
   color: white;
 }
 
+@media screen and (max-width: 900px) {
+  .Modal {
+    width: 90%;
+    left: 5%;
+  }
+}
+
 .Overlay {
   position: fixed;
   top: 0;
