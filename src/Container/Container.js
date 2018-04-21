@@ -14,7 +14,7 @@ class Container extends Component {
       list: DogCategories, 
       loading: true, 
       modalIsOpen: false,
-      currentBreedPics: []
+      currentBreed: {name: null, pics: []}
     };
     this.handleClick = this.handleClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -39,8 +39,7 @@ class Container extends Component {
   handleClick(id, e) {
     this.setState({
       modalIsOpen: true, 
-      currentBreed: this.state.list.find(dog => dog.id === id).name,
-      currentBreedPics: []
+      currentBreed: {name: this.state.list.find(dog => dog.id === id).name, pics: []}
     });
   }
 
@@ -49,13 +48,15 @@ class Container extends Component {
   }
 
   fetchDogs() {
-    fetch(`https://dog.ceo/api/breed/${this.state.currentBreed}/images`)
+    fetch(`https://dog.ceo/api/breed/${this.state.currentBreed.name}/images`)
       .then(res => res.json())
-      .then(res =>  this.setState({currentBreedPics: res.message}));
+      .then(res =>  this.setState({currentBreed: 
+        {name: this.state.currentBreed.name, pics: res.message}
+      }));
   }
 
   render() {
-    const {list, modalIsOpen, currentBreedPics} = this.state;
+    const {list, modalIsOpen, currentBreed} = this.state;
 
     return (
       <div className="container">
@@ -70,7 +71,7 @@ class Container extends Component {
           modalIsOpen={modalIsOpen} 
           fetchDogs={this.fetchDogs} 
           closeModal={this.closeModal}
-          currentBreedPics={currentBreedPics}
+          currentBreed={currentBreed}
          />
       </div>
     );
