@@ -1,12 +1,15 @@
 .Modal {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  top: 20%;
+  left: 25%;
   height: 500px;
-  border: 3px solid blue;
-  background: blue;
+  border: 3px solid skyblue;
+  background: skyblue;
+  font-family: 'Rammetto One', cursive;
+  text-shadow: 1px 1px 1px #000;
+  text-align: center;
+  width: 50%;
+  color: white;
 }
 
 .Overlay {
@@ -15,4 +18,5 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(135, 206, 235, 0.4);
 }

@@ -37,9 +37,10 @@ class Container extends Component {
   }
 
   handleClick(id, e) {
+    const dog = this.state.list.find(dog => dog.id === id);
     this.setState({
       modalIsOpen: true, 
-      currentBreed: {name: this.state.list.find(dog => dog.id === id).name, pics: []}
+      currentBreed: {name: dog.name, pics: [dog.img]}
     });
   }
 
@@ -53,7 +54,7 @@ class Container extends Component {
       .then(res =>  this.setState({currentBreed: 
         {
           name: this.state.currentBreed.name, 
-          pics: res.message
+          pics: this.state.currentBreed.pics.concat(res.message)
         }
       }));
   }
