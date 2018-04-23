@@ -37,10 +37,8 @@ class List extends Component {
       return this.calculateColumns(4);
     } else if (windowWidth >= 426) {
       return this.calculateColumns(3);
-    } else if (windowWidth >= 330) {
-      return this.calculateColumns(2);
     } else {
-      return this.props.list.length;
+      return this.calculateColumns(2);
     }
   }
 
