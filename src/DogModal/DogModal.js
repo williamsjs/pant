@@ -16,7 +16,7 @@ const DogModal = ({modalIsOpen, closeModal, fetchDogs, currentBreed}) => {
 
   return (
     <Modal ariaHideApp={false} className="Modal" overlayClassName="Overlay" isOpen={modalIsOpen} onAfterOpen={fetchDogs} onRequestClose={closeModal}>
-      <h1 class="modal-title">{currentBreed.name}</h1>
+      <h1 className="modal-title">{currentBreed.name}</h1>
       <Slider {...settings} >
         {currentBreed.pics.map((pic, i) => <div key={i}><img style={{width: '100%', height: '400px'}} src={pic} alt={pic}/></div>)}
       </Slider>
