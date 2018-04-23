@@ -38,7 +38,7 @@
   width: 100%;
   visibility: hidden;
   color: orange;
-  font-size: 3em;
+  font-size: 2.3em;
   font-family: 'Anton', sans-serif;
   text-shadow: 1px 1px #000;
   text-transform: capitalize;
@@ -48,7 +48,7 @@
   visibility: visible;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .hover-text {
     font-size: 1.5em;
   }
